@@ -32,7 +32,7 @@ public class PostController {
     }
 
     @PostMapping("/posts")
-    public Post createPost(@Valid @RequestBody Post post) {
+    public Post createPost(@RequestBody @Valid Post post) {
         return postRepository.save(post);
     }
 }

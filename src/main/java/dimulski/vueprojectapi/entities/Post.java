@@ -6,11 +6,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "posts")
-@EntityListeners(AuditingEntityListener.class)
 public class Post {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private long id;
 
     @Column(name = "user_id", nullable = false)
@@ -21,6 +21,16 @@ public class Post {
 
     @Column(name = "body", nullable = false)
     private String body;
+
+    public Post() {
+    }
+
+    public Post(long id, long userId, String title, String body) {
+        this.id = id;
+        this.userId = userId;
+        this.title = title;
+        this.body = body;
+    }
 
     public long getId() {
         return id;
