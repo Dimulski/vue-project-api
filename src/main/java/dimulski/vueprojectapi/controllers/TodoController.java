@@ -34,4 +34,14 @@ public class TodoController extends BaseController {
     public Todo createTodo(@RequestBody @Valid Todo todo) {
         return todoRepository.save(todo);
     }
+
+    @PutMapping("/todos/{id}")
+    public ResponseEntity<Todo> replaceTodo(
+            @RequestBody @Valid Todo newTodo, @PathVariable(value = "id") Long id) throws NotFoundException {
+        if (!todoRepository.existsById(id)) {
+            throw new NotFoundException(String.format("Todo with id %s not found", id));
+        }
+
+        return ResponseEntity.ok(todoRepository.save(newTodo));
+    }
 }

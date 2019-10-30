@@ -20,7 +20,8 @@ public class VueProjectApiApplication {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**").allowedOrigins(
 						"http://localhost:8081",
-						"https://vue-project-dad2a.firebaseapp.com");
+						"https://vue-project-dad2a.firebaseapp.com")
+						.allowedMethods("GET", "POST", "PUT", "DELETE");
 			}
 		};
 	}
