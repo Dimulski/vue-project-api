@@ -27,7 +27,7 @@ public class PostController {
         Post post =
                 postRepository
                         .findById(id)
-                        .orElseThrow(() -> new NotFoundException("User not found on :: " + id));
+                        .orElseThrow(() -> new NotFoundException("Post not found on :: " + id));
         return ResponseEntity.ok().body(post);
     }
 

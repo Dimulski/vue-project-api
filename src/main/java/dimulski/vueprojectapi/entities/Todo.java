@@ -1,12 +1,10 @@
 package dimulski.vueprojectapi.entities;
 
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.*;
 
 @Entity
-@Table(name = "posts")
-public class Post {
+@Table(name = "todos")
+public class Todo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +17,10 @@ public class Post {
     @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "body", nullable = false)
-    private String body;
+    @Column(name = "completed", nullable = false)
+    private Boolean completed;
 
-    public Post() {
+    public Todo() {
     }
 
     public long getId() {
@@ -49,11 +47,11 @@ public class Post {
         this.title = title;
     }
 
-    public String getBody() {
-        return body;
+    public Boolean getCompleted() {
+        return completed;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setCompleted(Boolean completed) {
+        this.completed = completed;
     }
 }
