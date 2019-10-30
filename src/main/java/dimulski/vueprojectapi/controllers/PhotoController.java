@@ -11,8 +11,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
-public class PhotoController {
+public class PhotoController extends BaseController {
 
     @Autowired
     private PhotoRepository photoRepository;
@@ -35,5 +34,4 @@ public class PhotoController {
     public Photo createPhoto(@RequestBody @Valid Photo photo) {
         return photoRepository.save(photo);
     }
-
 }

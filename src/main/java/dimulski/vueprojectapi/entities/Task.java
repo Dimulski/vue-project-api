@@ -5,13 +5,24 @@ import dimulski.vueprojectapi.entities.contracts.TitledEntity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "todos")
-public class Todo extends TitledEntity {
+@Table(name = "tasks")
+public class Task extends TitledEntity {
+
+    @Column(name = "user_id", nullable = false)
+    private long userId;
 
     @Column(name = "completed", nullable = false)
     private Boolean completed;
 
-    public Todo() {
+    public Task() {
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public Boolean getCompleted() {

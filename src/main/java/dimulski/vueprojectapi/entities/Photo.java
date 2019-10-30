@@ -1,21 +1,15 @@
 package dimulski.vueprojectapi.entities;
 
+import dimulski.vueprojectapi.entities.contracts.TitledEntity;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "photos")
-public class Photo {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private long id;
+public class Photo extends TitledEntity {
 
     @Column(name = "album_id", nullable = false)
     private long albumId;
-
-    @Column(name = "title", nullable = false)
-    private String title;
 
     @Column(name = "url", nullable = false)
     private String url;
@@ -26,28 +20,12 @@ public class Photo {
     public Photo() {
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public long getAlbumId() {
         return albumId;
     }
 
     public void setAlbumId(long albumId) {
         this.albumId = albumId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getUrl() {

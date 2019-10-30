@@ -11,8 +11,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
-public class TodoController {
+public class TodoController extends BaseController {
 
     @Autowired
     private TodoRepository todoRepository;

@@ -11,8 +11,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
-public class PostController {
+public class PostController extends BaseController {
 
     @Autowired
     private PostRepository postRepository;
