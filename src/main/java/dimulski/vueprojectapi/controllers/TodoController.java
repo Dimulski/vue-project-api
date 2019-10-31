@@ -44,4 +44,14 @@ public class TodoController extends BaseController {
 
         return ResponseEntity.ok(todoRepository.save(newTodo));
     }
+
+    @DeleteMapping("/todos/{id}")
+    public ResponseEntity<?> deleteTodo(@PathVariable Long id) throws NotFoundException {
+        if (!todoRepository.existsById(id)) {
+            throw new NotFoundException(String.format("Todo with id %s not found", id));
+        }
+        todoRepository.deleteById(id);
+
+        return ResponseEntity.noContent().build();
+    }
 }
